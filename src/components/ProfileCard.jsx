@@ -1,0 +1,48 @@
+import React from 'react';
+import { SendRequestIcon } from './icons/Icons';
+import profilPuty from '../assets/asset/profil_puty.svg';
+
+
+const ProfileCard = ({ onRequest }) => (
+  <div
+    id="profile-header"
+    className="w-full flex flex-col md:flex-row items-center justify-between gap-6"
+  >
+    {/* Profil info */}
+    <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left w-full md:w-auto">
+      {/* Avatar (Removed border-4 border-white and shadow-lg to clear the white wrapper effect) */}
+      <img
+        src={profilPuty}
+        alt="Puty Avatar"
+        className="w-24 h-24 rounded-full object-cover shrink-0" 
+      />
+
+      {/* Teks identitas */}
+      <div>
+        <p className="font-hand italic text-3xl leading-none text-primary/80 mb-1">Hello!</p>
+        <h1 className="font-hand font-bold text-5xl uppercase tracking-widest text-primary leading-tight">
+          I'm PUTY
+        </h1>
+        <p className="font-mono italic text-sm tracking-wider text-primary/75 mt-1 ">
+          A Freelance Illustrator &amp; Design Grafic
+        </p>
+      </div>
+    </div>
+
+    {/* Tombol Send Request */}
+    <button
+      id="btn-send-request"
+      onClick={onRequest}
+      className="bg-[#2F65B6] text-white hover:bg-[#2F65B6] transition-all duration-200 shadow-md rounded-3xl px-14 py-1.5 flex items-center justify-between gap-4 font-hand text-base tracking-wide shrink-0 hover:scale-105 active:scale-95 min-w-[220px]"
+    >
+      <div className="text-left leading-tight mr-auto">
+        Send Me<br />Request! &lt;3
+      </div>
+      <span className="ml-2 shrink-0">
+        <SendRequestIcon size={28} />
+      </span>
+    </button>
+  </div>
+);
+
+export default ProfileCard;

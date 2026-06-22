@@ -1,0 +1,45 @@
+/* 1. Absolute top: All @import statements must be first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Patrick+Hand&family=Roboto+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+/* 2. Configure local typography */
+@font-face {
+  font-family: 'Figma Hand';
+  src: local('Figma Hand'), local('FigmaHand'), local('FigmaHand-Regular'),
+       url('/assets/fonts/FigmaHand-Regular.woff2') format('woff2'),
+       url('/assets/fonts/FigmaHand-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 3. Tailwind v4 Theme Variables */
+@theme {
+  --color-primary: #1C4E90;
+
+  --font-hand: "Figma Hand", "Patrick Hand", cursive, sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+  --font-inter: "Inter", sans-serif;
+}
+
+/* 4. Utility Global */
+body {
+  @apply text-primary font-inter;
+}
+
+/* 5. Utility Kustom Reusable untuk Desain Glassmorphism */
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-lg rounded-3xl;
+}
+
+.glass-card-nav {
+  @apply bg-white/30 border border-[#2D60B3]/40 rounded-full shadow-md transition-all duration-200 hover:bg-white/50 hover:scale-[1.02] hover:shadow-lg;
+}
+
+.glass-button {
+  @apply bg-primary text-white hover:bg-primary/90 transition-colors shadow-md rounded-full px-6 py-2 flex items-center justify-center gap-2;
+}
+
+/* Kustomisasi gaya input form agar serasi */
+.glass-input {
+  @apply w-full border-2 border-[#2D60B3]/50 rounded-2xl px-4 py-3 bg-white/55 shadow-[0_5px_15px_rgba(28,78,144,0.12)] focus:outline-none focus:border-[#2D60B3] transition-all font-mono text-sm text-[#1C4E90] tracking-wider;
+}
