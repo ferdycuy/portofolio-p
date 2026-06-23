@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 
 // Import asset gambar untuk Illustration (Set 1)
-import magangilust1 from '../assets/asset/illustation/magangilust 1.svg';
-import magangilustProgress from '../assets/asset/illustation/magangilust progress.svg';
-import coverJuklakJuknis from '../assets/asset/illustation/cover juklak juknis.svg';
-import coverSiPenyu from '../assets/asset/illustation/cover si penyu.svg';
-import coverKdrt from '../assets/asset/illustation/cover kdrt.svg';
+import magangilust1 from '../assets/asset/illustation/magangilust 1.webp';
+import magangilustProgress from '../assets/asset/illustation/magangilust progress.webp';
+import coverJuklakJuknis from '../assets/asset/illustation/cover juklak juknis.webp';
+import coverSiPenyu from '../assets/asset/illustation/cover si penyu.webp';
+import coverKdrt from '../assets/asset/illustation/cover kdrt.webp';
 
 // Import asset gambar untuk Illustration (Set 2 - Selengkapnya)
-import coverThePrice from '../assets/asset/illustation/cover the price.svg';
-import thePrince12 from '../assets/asset/illustation/the prince 1 2.svg';
-import thePrince34 from '../assets/asset/illustation/the prince 3 4.svg';
-import thePrince56 from '../assets/asset/illustation/the prince 5 6.svg';
-import thePrince78 from '../assets/asset/illustation/the prince 7 8.svg';
-import mbaRambutIjo from '../assets/asset/illustation/mba rambut ijo.svg';
-import cweGweh from '../assets/asset/illustation/cwe gweh.svg';
+import coverThePrice from '../assets/asset/illustation/cover the price.webp';
+import thePrince12 from '../assets/asset/illustation/the prince 1 2.webp';
+import thePrince34 from '../assets/asset/illustation/the prince 3 4.webp';
+import thePrince56 from '../assets/asset/illustation/the prince 5 6.webp';
+import thePrince78 from '../assets/asset/illustation/the prince 7 8.webp';
+import mbaRambutIjo from '../assets/asset/illustation/mba rambut ijo.webp';
+import cweGweh from '../assets/asset/illustation/cwe gweh.webp';
 import shuYamino from '../assets/asset/illustation/shu yamino.svg';
-import scotlCouple from '../assets/asset/illustation/scotl couple.svg';
+import scotlCouple from '../assets/asset/illustation/scotl.webp';
 import cwoGreenflag from '../assets/asset/illustation/cwo greenflag.svg';
 
 // Import asset gambar untuk Character Design

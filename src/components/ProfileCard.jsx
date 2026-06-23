@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SendRequestIcon } from './icons/Icons';
-import profilPuty from '../assets/asset/profil_puty.svg';
+import profilPuty from '../assets/asset/profil_puty.webp';
 
 const ProfileCard = ({ onRequest }) => {
   const [isLoaded, setIsLoaded] = useState(false);

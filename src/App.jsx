@@ -8,11 +8,11 @@ import { ArrowRightIcon } from './components/icons/Icons';
 import bgBlue from './assets/asset/Baground blue.svg';
 
 // Import asset gambar utama saja untuk di-preload secara berkala (hanya yang tampil langsung di awal halaman)
-import magangilust1 from './assets/asset/illustation/magangilust 1.svg';
-import magangilustProgress from './assets/asset/illustation/magangilust progress.svg';
-import coverJuklakJuknis from './assets/asset/illustation/cover juklak juknis.svg';
-import coverSiPenyu from './assets/asset/illustation/cover si penyu.svg';
-import coverKdrt from './assets/asset/illustation/cover kdrt.svg';
+import magangilust1 from './assets/asset/illustation/magangilust 1.webp';
+import magangilustProgress from './assets/asset/illustation/magangilust progress.webp';
+import coverJuklakJuknis from './assets/asset/illustation/cover juklak juknis.webp';
+import coverSiPenyu from './assets/asset/illustation/cover si penyu.webp';
+import coverKdrt from './assets/asset/illustation/cover kdrt.webp';
 
 import baddasGurl from './assets/asset/desain karakter/baddas gurl.svg';
 import myOcUnica from './assets/asset/desain karakter/my oc unica.svg';
