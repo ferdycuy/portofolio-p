@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HomePage      from './pages/HomePage';
 import GalleryPage   from './pages/GalleryPage';
 import TOSPage       from './pages/TOSPage';
@@ -6,6 +6,33 @@ import CommissionForm from './components/CommissionForm';
 import SocialBar     from './components/SocialBar';
 import { ArrowRightIcon } from './components/icons/Icons';
 import bgBlue from './assets/asset/Baground blue.svg';
+
+// Import asset gambar utama saja untuk di-preload secara berkala (hanya yang tampil langsung di awal halaman)
+import magangilust1 from './assets/asset/illustation/magangilust 1.svg';
+import magangilustProgress from './assets/asset/illustation/magangilust progress.svg';
+import coverJuklakJuknis from './assets/asset/illustation/cover juklak juknis.svg';
+import coverSiPenyu from './assets/asset/illustation/cover si penyu.svg';
+import coverKdrt from './assets/asset/illustation/cover kdrt.svg';
+
+import baddasGurl from './assets/asset/desain karakter/baddas gurl.svg';
+import myOcUnica from './assets/asset/desain karakter/my oc unica.svg';
+import gweKeren from './assets/asset/desain karakter/gwe keren.svg';
+import prodiDesainNoBg1 from './assets/asset/desain karakter/prodi desain no bg 1.svg';
+
+// Import asset gambar posters & banners untuk preloading
+import iklanFibemini from './assets/asset/iklan banners/iklan fibemini.svg';
+import iklanPantene from './assets/asset/iklan banners/iklan pantene.svg';
+import iklanPringles1 from './assets/asset/iklan banners/iklan pringles1.svg';
+import iklanPringles2 from './assets/asset/iklan banners/iklan pringles2.svg';
+
+// Import asset gambar konten untuk preloading
+import kontenIg1 from './assets/asset/konten/konten ig1.svg';
+import kontenIg2 from './assets/asset/konten/konten ig2.svg';
+
+// Import asset gambar packaging untuk preloading
+import desainPackagingNyamnyam from './assets/asset/desain kemasan/desain packaging nyamnyam.svg';
+import desainPackagingSuperstar from './assets/asset/desain kemasan/desain packaging superstar.svg';
+import desainPackagingTematik from './assets/asset/desain kemasan/desain packaging tematik.svg';
 
 // Judul halaman untuk ditampilkan di header zone
 const pageTitles = {
@@ -23,9 +50,55 @@ const viewMap = {
   form:         <CommissionForm />,
 };
 
+// Hanya daftarkan gambar utama yang terlihat langsung saat halaman dibuka
+const primaryImagesToPreload = [
+  magangilust1,
+  magangilustProgress,
+  coverJuklakJuknis,
+  coverSiPenyu,
+  coverKdrt,
+  prodiDesainNoBg1,
+  gweKeren,
+  baddasGurl,
+  myOcUnica,
+  iklanFibemini,
+  iklanPantene,
+  iklanPringles1,
+  iklanPringles2,
+  kontenIg1,
+  kontenIg2,
+  desainPackagingNyamnyam,
+  desainPackagingSuperstar,
+  desainPackagingTematik
+];
+
 export default function App() {
   const [activeView, setActiveView] = useState('home');
   const isHome = activeView === 'home';
+
+  // Efek samping preloading bertahap (satu per satu dengan jeda waktu)
+  useEffect(() => {
+    let index = 0;
+    let timeoutId = null;
+
+    const preloadNext = () => {
+      if (index < primaryImagesToPreload.length) {
+        const img = new Image();
+        img.src = primaryImagesToPreload[index];
+        index++;
+        // Beri jeda 1.5 detik sebelum mendownload gambar berikutnya
+        timeoutId = setTimeout(preloadNext, 1500);
+      }
+    };
+
+    // Tunggu 3 detik setelah homepage aktif (hingga rendering selesai) sebelum antrean dimulai
+    const startTimeoutId = setTimeout(preloadNext, 3000);
+
+    return () => {
+      clearTimeout(startTimeoutId);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
 
   return (
     <div
@@ -51,7 +124,7 @@ export default function App() {
                     <ArrowRightIcon size={18} />
                   </span>
                 </button>
-                <h1 className="font-hand italic text-6xl text-[#2D60B3] tracking-wide text-center">
+                <h1 className="font-hand italic text-4xl text-[#2D60B3] tracking-wide text-center">
                   {pageTitles[activeView]}
                 </h1>
               </div>

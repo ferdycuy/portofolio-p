@@ -28,6 +28,62 @@ import myMineGwe from '../assets/asset/desain karakter/my mine gwe.svg';
 import myOcUnica from '../assets/asset/desain karakter/my oc unica.svg';
 import prodiDesainNoBg1 from '../assets/asset/desain karakter/prodi desain no bg 1.svg';
 
+// Import asset gambar untuk Design Graphic (Posters & Banners)
+import iklanFibemini from '../assets/asset/iklan banners/iklan fibemini.svg';
+import iklanPantene from '../assets/asset/iklan banners/iklan pantene.svg';
+import iklanPringles1 from '../assets/asset/iklan banners/iklan pringles1.svg';
+import iklanPringles2 from '../assets/asset/iklan banners/iklan pringles2.svg';
+import iklanPringles3 from '../assets/asset/iklan banners/iklan pringles3.svg';
+import iceCreamBanner from '../assets/asset/iklan banners/ice cream banner.svg';
+import blackmoriesBanner from '../assets/asset/iklan banners/blackmories banner.svg';
+
+// Import asset gambar untuk Design Graphic (Content Design)
+import kontenIg1 from '../assets/asset/konten/konten ig1.svg';
+import kontenIg2 from '../assets/asset/konten/konten ig2.svg';
+
+// Import asset gambar untuk Design Graphic (Packaging Design)
+import desainPackagingNyamnyam from '../assets/asset/desain kemasan/desain packaging nyamnyam.svg';
+import desainPackagingSuperstar from '../assets/asset/desain kemasan/desain packaging superstar.svg';
+import desainPackagingTematik from '../assets/asset/desain kemasan/desain packaging tematik.svg';
+
+/**
+ * GalleryImage Component
+ * Komponen pembungkus gambar dengan fitur lazy load & loading skeleton
+ */
+const GalleryImage = ({ src, alt, aspectClass, className, objectFitClass = 'object-cover' }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div
+      className={`relative overflow-hidden transition-all duration-300 ${
+        aspectClass || 'w-full'
+      } ${className || ''}`}
+    >
+      {/* Loading Skeleton */}
+      {!isLoaded && (
+        <div 
+          className={`absolute inset-0 bg-[#2D60B3]/10 animate-pulse flex items-center justify-center ${
+            !aspectClass ? 'min-h-[250px]' : ''
+          }`}
+        >
+          <div className="w-8 h-8 rounded-full border-4 border-[#2D60B3]/15 border-t-[#2D60B3] animate-spin"></div>
+        </div>
+      )}
+      
+      {/* Gambar utama */}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setIsLoaded(true)}
+        className={`w-full h-full ${objectFitClass} transition-all duration-500 ${
+          isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+        } ${!aspectClass ? 'h-auto block' : ''}`}
+      />
+    </div>
+  );
+};
+
 /**
  * GalleryPage — halaman galeri untuk Illustration atau Design Graphic
  * Props:
@@ -54,70 +110,114 @@ const GalleryPage = ({ label }) => {
           {/* Grid Set 1 */}
           <div className="grid grid-cols-2 gap-4 w-full">
             {/* Baris 1: Magang Ilustrasi 1 & Progress */}
-            <div className="aspect-[4/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-              <img src={magangilust1} alt="Magang Ilustrasi 1" className="w-full h-full object-cover" />
-            </div>
-            <div className="aspect-[4/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-              <img src={magangilustProgress} alt="Magang Ilustrasi Progress" className="w-full h-full object-cover" />
-            </div>
+            <GalleryImage 
+              src={magangilust1} 
+              alt="Magang Ilustrasi 1" 
+              aspectClass="aspect-[4/3]" 
+              className="hover:scale-[1.02]"
+            />
+            <GalleryImage 
+              src={magangilustProgress} 
+              alt="Magang Ilustrasi Progress" 
+              aspectClass="aspect-[4/3]" 
+              className="hover:scale-[1.02]"
+            />
 
             {/* Baris 2 & 3: Cover Juklak Juknis (kiri, memanjang ke bawah), Cover Si Penyu & Cover KDRT (kanan) */}
-            <div className="row-span-2 overflow-hidden hover:scale-[1.01] transition-all duration-300 flex flex-col justify-stretch">
-              <img src={coverJuklakJuknis} alt="Cover Juklak Juknis" className="w-full h-full object-cover flex-1" />
-            </div>
-            <div className="aspect-[4/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-              <img src={coverSiPenyu} alt="Cover Si Penyu" className="w-full h-full object-cover" />
-            </div>
-            <div className="aspect-[4/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-              <img src={coverKdrt} alt="Cover KDRT" className="w-full h-full object-cover" />
-            </div>
+            <GalleryImage 
+              src={coverJuklakJuknis} 
+              alt="Cover Juklak Juknis" 
+              className="row-span-2 hover:scale-[1.01]" 
+            />
+            <GalleryImage 
+              src={coverSiPenyu} 
+              alt="Cover Si Penyu" 
+              aspectClass="aspect-[4/3]" 
+              className="hover:scale-[1.02]"
+            />
+            <GalleryImage 
+              src={coverKdrt} 
+              alt="Cover KDRT" 
+              aspectClass="aspect-[4/3]" 
+              className="hover:scale-[1.02]"
+            />
           </div>
 
           {/* Grid Set 2 (Ditampilkan jika isExpanded = true) */}
           {isExpanded && (
             <div className="flex flex-col gap-4 w-full transition-all duration-500 animate-fadeIn">
               {/* 1. Cover The Price (Single di center tengah) */}
-              <div className="max-w-lg mx-auto w-full aspect-[16/9] overflow-hidden hover:scale-[1.01] transition-all duration-300">
-                <img src={coverThePrice} alt="Cover The Price" className="w-full h-full object-cover" />
-              </div>
+              <GalleryImage 
+                src={coverThePrice} 
+                alt="Cover The Price" 
+                aspectClass="max-w-lg mx-auto w-full aspect-[16/9]" 
+                className="hover:scale-[1.01]"
+              />
 
               {/* 2. Grid 2 Kolom (The Prince 1-2, 3-4, 5-6, 7-8) */}
               <div className="grid grid-cols-2 gap-4 w-full">
-                <div className="aspect-[8/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                  <img src={thePrince12} alt="The Prince 1-2" className="w-full h-full object-cover" />
-                </div>
-                <div className="aspect-[8/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                  <img src={thePrince34} alt="The Prince 3-4" className="w-full h-full object-cover" />
-                </div>
-                <div className="aspect-[8/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                  <img src={thePrince56} alt="The Prince 5-6" className="w-full h-full object-cover" />
-                </div>
-                <div className="aspect-[8/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                  <img src={thePrince78} alt="The Prince 7-8" className="w-full h-full object-cover" />
-                </div>
+                <GalleryImage 
+                  src={thePrince12} 
+                  alt="The Prince 1-2" 
+                  aspectClass="aspect-[8/3]" 
+                  className="hover:scale-[1.02]"
+                />
+                <GalleryImage 
+                  src={thePrince34} 
+                  alt="The Prince 3-4" 
+                  aspectClass="aspect-[8/3]" 
+                  className="hover:scale-[1.02]"
+                />
+                <GalleryImage 
+                  src={thePrince56} 
+                  alt="The Prince 5-6" 
+                  aspectClass="aspect-[8/3]" 
+                  className="hover:scale-[1.02]"
+                />
+                <GalleryImage 
+                  src={thePrince78} 
+                  alt="The Prince 7-8" 
+                  aspectClass="aspect-[8/3]" 
+                  className="hover:scale-[1.02]"
+                />
               </div>
 
               {/* 3. Grid 3 Kolom Potret (Mba Rambut Ijo, Cwe Gweh, Shu Yamino) */}
               <div className="grid grid-cols-3 gap-4 w-full">
-                <div className="aspect-[2/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                  <img src={mbaRambutIjo} alt="Mba Rambut Ijo" className="w-full h-full object-cover" />
-                </div>
-                <div className="aspect-[2/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                  <img src={cweGweh} alt="Cwe Gweh" className="w-full h-full object-cover" />
-                </div>
-                <div className="aspect-[2/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                  <img src={shuYamino} alt="Shu Yamino" className="w-full h-full object-cover" />
-                </div>
+                <GalleryImage 
+                  src={mbaRambutIjo} 
+                  alt="Mba Rambut Ijo" 
+                  aspectClass="aspect-[2/3]" 
+                  className="hover:scale-[1.02]"
+                />
+                <GalleryImage 
+                  src={cweGweh} 
+                  alt="Cwe Gweh" 
+                  aspectClass="aspect-[2/3]" 
+                  className="hover:scale-[1.02]"
+                />
+                <GalleryImage 
+                  src={shuYamino} 
+                  alt="Shu Yamino" 
+                  aspectClass="aspect-[2/3]" 
+                  className="hover:scale-[1.02]"
+                />
               </div>
 
               {/* 4. Grid 2 Kolom Lebar (Scotl Couple, Cwo Greenflag) */}
               <div className="grid grid-cols-2 gap-4 w-full">
-                <div className="aspect-[4/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                  <img src={scotlCouple} alt="Scotl Couple" className="w-full h-full object-cover" />
-                </div>
-                <div className="aspect-[4/3] overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                  <img src={cwoGreenflag} alt="Cwo Greenflag" className="w-full h-full object-cover" />
-                </div>
+                <GalleryImage 
+                  src={scotlCouple} 
+                  alt="Scotl Couple" 
+                  aspectClass="aspect-[4/3]" 
+                  className="hover:scale-[1.02]"
+                />
+                <GalleryImage 
+                  src={cwoGreenflag} 
+                  alt="Cwo Greenflag" 
+                  aspectClass="aspect-[4/3]" 
+                  className="hover:scale-[1.02]"
+                />
               </div>
             </div>
           )}
@@ -142,23 +242,31 @@ const GalleryPage = ({ label }) => {
           {/* Layout Alur Khusus Character Design (Sesuai proporsi gambar asli, polos tanpa border/bg) */}
           <div className="flex flex-col gap-4 w-full">
             {/* 1. Prodi Desain No BG 1 (Full width) */}
-            <div className="w-full overflow-hidden hover:scale-[1.01] transition-all duration-300">
-              <img src={prodiDesainNoBg1} alt="Prodi Desain" className="w-full h-auto block" />
-            </div>
+            <GalleryImage 
+              src={prodiDesainNoBg1} 
+              alt="Prodi Desain" 
+              className="w-full hover:scale-[1.01]" 
+            />
 
             {/* 2. Gwe Keren (Full width) */}
-            <div className="w-full overflow-hidden hover:scale-[1.01] transition-all duration-300">
-              <img src={gweKeren} alt="Gwe Keren" className="w-full h-auto block" />
-            </div>
+            <GalleryImage 
+              src={gweKeren} 
+              alt="Gwe Keren" 
+              className="w-full hover:scale-[1.01]" 
+            />
 
             {/* 3. 2 Kolom (Baddas Gurl & My Oc Unica) */}
             <div className="grid grid-cols-2 gap-4 w-full">
-              <div className="overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                <img src={baddasGurl} alt="Baddas Gurl" className="w-full h-auto block" />
-              </div>
-              <div className="overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                <img src={myOcUnica} alt="My Oc Unica" className="w-full h-auto block" />
-              </div>
+              <GalleryImage 
+                src={baddasGurl} 
+                alt="Baddas Gurl" 
+                className="hover:scale-[1.02]" 
+              />
+              <GalleryImage 
+                src={myOcUnica} 
+                alt="My Oc Unica" 
+                className="hover:scale-[1.02]" 
+              />
             </div>
 
             {/* Tombol Lihat Selengkapnya (Hanya tampil jika BELUM di-expand) */}
@@ -176,18 +284,24 @@ const GalleryPage = ({ label }) => {
             {isCharExpanded && (
               <div className="flex flex-col gap-4 w-full transition-all duration-500 animate-fadeIn">
                 {/* 4. Desain Karakter Sidapfest (Full width) */}
-                <div className="w-full overflow-hidden hover:scale-[1.01] transition-all duration-300">
-                  <img src={desainKarakterSidapfest} alt="Sidapfest Karakter" className="w-full h-auto block" />
-                </div>
+                <GalleryImage 
+                  src={desainKarakterSidapfest} 
+                  alt="Sidapfest Karakter" 
+                  className="w-full hover:scale-[1.01]" 
+                />
 
                 {/* 5. 2 Kolom (My Mine Gwe & Barong Desain) */}
                 <div className="grid grid-cols-2 gap-4 w-full">
-                  <div className="overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                    <img src={myMineGwe} alt="My Mine Gwe" className="w-full h-auto block" />
-                  </div>
-                  <div className="overflow-hidden hover:scale-[1.02] transition-all duration-300">
-                    <img src={barongDesain} alt="Barong Desain" className="w-full h-auto block" />
-                  </div>
+                  <GalleryImage 
+                    src={myMineGwe} 
+                    alt="My Mine Gwe" 
+                    className="hover:scale-[1.02]" 
+                  />
+                  <GalleryImage 
+                    src={barongDesain} 
+                    alt="Barong Desain" 
+                    className="hover:scale-[1.02]" 
+                  />
                 </div>
 
                 {/* Tombol Sembunyikan (Ditampilkan paling bawah setelah konten terbuka) */}
@@ -206,19 +320,116 @@ const GalleryPage = ({ label }) => {
         /* ────────────────────────────────────────────────────────
            LAYOUT DESIGN GRAPHIC
            ──────────────────────────────────────────────────────── */
-        <div className="max-w-[720px] mx-auto w-full flex flex-col gap-4">
+        <div className="max-w-[720px] mx-auto w-full flex flex-col gap-6">
+          {/* Title Box 1: Posters & Banners */}
           <div className="w-fit mx-auto py-1.5 px-12 rounded-xl bg-white/55 border-2 border-[#2D60B3]/50 shadow-[0_5px_15px_rgba(28,78,144,0.12)] font-hand text-3xl text-[#2D60B3] tracking-wider">
-            Design Grafic
+            Posters & Banners
           </div>
-          <div className="grid grid-cols-2 gap-4 w-full">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-[4/3] overflow-hidden flex items-center justify-center text-primary/30 font-inter text-xs"
-              >
-                Work {i + 1}
-              </div>
-            ))}
+
+          <div className="flex flex-col gap-4 w-full">
+            {/* 1. 2 Kolom Persegi Panjang Kebawah (Portrait) */}
+            <div className="grid grid-cols-2 gap-4 w-full">
+              <GalleryImage 
+                src={iklanFibemini} 
+                alt="Iklan Fibemini" 
+                aspectClass="aspect-[3/4]" 
+                className="hover:scale-[1.02]" 
+              />
+              <GalleryImage 
+                src={iklanPantene} 
+                alt="Iklan Pantene" 
+                aspectClass="aspect-[3/4]" 
+                className="hover:scale-[1.02]" 
+              />
+            </div>
+
+            {/* 2. 2 Kolom Landscape Normal */}
+            <div className="grid grid-cols-2 gap-4 w-full">
+              <GalleryImage 
+                src={iklanPringles1} 
+                alt="Iklan Pringles 1" 
+                aspectClass="aspect-[4/3]" 
+                className="hover:scale-[1.02]" 
+              />
+              <GalleryImage 
+                src={iklanPringles2} 
+                alt="Iklan Pringles 2" 
+                aspectClass="aspect-[4/3]" 
+                className="hover:scale-[1.02]" 
+              />
+            </div>
+
+            {/* 3. 2 Kolom Landscape Normal Kedua */}
+            <div className="grid grid-cols-2 gap-4 w-full">
+              <GalleryImage 
+                src={iklanPringles3} 
+                alt="Iklan Pringles 3" 
+                aspectClass="aspect-[4/3]" 
+                className="hover:scale-[1.02]" 
+              />
+              <GalleryImage 
+                src={iceCreamBanner} 
+                alt="Ice Cream Banner" 
+                aspectClass="aspect-[4/3]" 
+                className="hover:scale-[1.02]" 
+              />
+            </div>
+
+            {/* 4. Blackmories Banner (Sendirian Full width) */}
+            <GalleryImage 
+              src={blackmoriesBanner} 
+              alt="Blackmories Banner" 
+              className="w-full hover:scale-[1.01]" 
+            />
+          </div>
+
+          {/* Spacer */}
+          <div className="my-4 border-t-2 border-dashed border-[#2D60B3]/25 w-full"></div>
+
+          {/* Title Box 2: Content Design */}
+          <div className="w-fit mx-auto py-1.5 px-12 rounded-xl bg-white/55 border-2 border-[#2D60B3]/50 shadow-[0_5px_15px_rgba(28,78,144,0.12)] font-hand text-3xl text-[#2D60B3] tracking-wider">
+            Content Design
+          </div>
+
+          {/* Layout Content Design (Masing-masing 1 full width ke bawah) */}
+          <div className="flex flex-col gap-4 w-full">
+            <GalleryImage 
+              src={kontenIg1} 
+              alt="Konten IG 1" 
+              className="w-full hover:scale-[1.01]" 
+            />
+            <GalleryImage 
+              src={kontenIg2} 
+              alt="Konten IG 2" 
+              className="w-full hover:scale-[1.01]" 
+            />
+          </div>
+
+          {/* Spacer */}
+          <div className="my-4 border-t-2 border-dashed border-[#2D60B3]/25 w-full"></div>
+
+          {/* Title Box 3: Packaging Design */}
+          <div className="w-fit mx-auto py-1.5 px-12 rounded-xl bg-white/55 border-2 border-[#2D60B3]/50 shadow-[0_5px_15px_rgba(28,78,144,0.12)] font-hand text-3xl text-[#2D60B3] tracking-wider">
+            Packaging Design
+          </div>
+
+          {/* Layout Packaging Design (Masing-masing 1 full width ke bawah, tidak kepotong) */}
+          <div className="flex flex-col gap-4 w-full">
+            <GalleryImage 
+              src={desainPackagingNyamnyam} 
+              alt="Packaging Nyamnyam" 
+              className="w-full hover:scale-[1.01]" 
+            />
+            <GalleryImage 
+              src={desainPackagingSuperstar} 
+              alt="Packaging Superstar" 
+              className="w-full hover:scale-[1.01]" 
+            />
+            <GalleryImage 
+              src={desainPackagingTematik} 
+              alt="Packaging Tematik" 
+              className="w-full hover:scale-[1.01]" 
+            />
           </div>
         </div>
       )}

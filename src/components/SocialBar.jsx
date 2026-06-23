@@ -3,10 +3,10 @@ import { InstagramIcon, DiscordIcon, EmailIcon, LinkedInIcon } from './icons/Ico
 
 // Data sosial media — ubah href sesuai akun Puty
 const socialLinks = [
-  { id: 'instagram', icon: InstagramIcon, href: 'https://instagram.com/', label: 'Instagram' },
-  { id: 'discord',   icon: DiscordIcon,   href: 'https://discord.com/',   label: 'Discord'   },
-  { id: 'email',     icon: EmailIcon,     href: 'mailto:puty@email.com',  label: 'Email'     },
-  { id: 'linkedin',  icon: LinkedInIcon,  href: 'https://linkedin.com/',  label: 'LinkedIn'  },
+  { id: 'instagram', icon: InstagramIcon, href: 'https://www.instagram.com/mowmeee?igsh=NmsxZTFsc2ZjOHZp', label: 'Instagram' },
+  { id: 'discord',   icon: DiscordIcon,   href: 'https://discord.gg/gSSgKATM',   label: 'Discord'   },
+  { id: 'email',     icon: EmailIcon,     href: 'mailto:mowmeee0@gmail.com',  label: 'Email'     },
+  { id: 'linkedin',  icon: LinkedInIcon,  href: 'https://www.linkedin.com/in/puput-yuniarsih',  label: 'LinkedIn'  },
 ];
 
 const SocialBar = () => (
