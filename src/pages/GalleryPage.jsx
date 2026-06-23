@@ -20,22 +20,22 @@ import scotlCouple from '../assets/asset/illustation/scotl.webp';
 import cwoGreenflag from '../assets/asset/illustation/cwo greenflag.svg';
 
 // Import asset gambar untuk Character Design
-import baddasGurl from '../assets/asset/desain karakter/baddas gurl.svg';
-import barongDesain from '../assets/asset/desain karakter/barong desain.svg';
+import baddasGurl from '../assets/asset/desain karakter/baddas gurl.webp';
+import barongDesain from '../assets/asset/desain karakter/barong desain.webp';
 import desainKarakterSidapfest from '../assets/asset/desain karakter/desain karakter sidapfest.svg';
 import gweKeren from '../assets/asset/desain karakter/gwe keren.svg';
-import myMineGwe from '../assets/asset/desain karakter/my mine gwe.svg';
-import myOcUnica from '../assets/asset/desain karakter/my oc unica.svg';
-import prodiDesainNoBg1 from '../assets/asset/desain karakter/prodi desain no bg 1.svg';
+import myMineGwe from '../assets/asset/desain karakter/my mine gwe.webp';
+import myOcUnica from '../assets/asset/desain karakter/my oc unica.webp';
+import prodiDesainNoBg1 from '../assets/asset/desain karakter/prodi desain no bg 1.webp';
 
 // Import asset gambar untuk Design Graphic (Posters & Banners)
-import iklanFibemini from '../assets/asset/iklan banners/iklan fibemini.svg';
-import iklanPantene from '../assets/asset/iklan banners/iklan pantene.svg';
-import iklanPringles1 from '../assets/asset/iklan banners/iklan pringles1.svg';
-import iklanPringles2 from '../assets/asset/iklan banners/iklan pringles2.svg';
-import iklanPringles3 from '../assets/asset/iklan banners/iklan pringles3.svg';
-import iceCreamBanner from '../assets/asset/iklan banners/ice cream banner.svg';
-import blackmoriesBanner from '../assets/asset/iklan banners/blackmories banner.svg';
+import iklanFibemini from '../assets/asset/iklan banners/iklan-fibemini.webp';
+import iklanPantene from '../assets/asset/iklan banners/iklan-pantene.webp';
+import iklanPringles1 from '../assets/asset/iklan banners/iklan-pringles1.webp';
+import iklanPringles2 from '../assets/asset/iklan banners/iklan-pringles2.webp';
+import iklanPringles3 from '../assets/asset/iklan banners/iklan-pringles3.webp';
+import iceCreamBanner from '../assets/asset/iklan banners/ice-cream-banner.webp';
+import blackmoriesBanner from '../assets/asset/iklan banners/blackmories-banner.webp';
 
 // Import asset gambar untuk Design Graphic (Content Design)
 import kontenIg1 from '../assets/asset/konten/konten ig1.svg';

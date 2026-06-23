@@ -14,16 +14,16 @@ import coverJuklakJuknis from './assets/asset/illustation/cover juklak juknis.we
 import coverSiPenyu from './assets/asset/illustation/cover si penyu.webp';
 import coverKdrt from './assets/asset/illustation/cover kdrt.webp';
 
-import baddasGurl from './assets/asset/desain karakter/baddas gurl.svg';
-import myOcUnica from './assets/asset/desain karakter/my oc unica.svg';
+import baddasGurl from './assets/asset/desain karakter/baddas gurl.webp';
+import myOcUnica from './assets/asset/desain karakter/my oc unica.webp';
 import gweKeren from './assets/asset/desain karakter/gwe keren.svg';
-import prodiDesainNoBg1 from './assets/asset/desain karakter/prodi desain no bg 1.svg';
+import prodiDesainNoBg1 from './assets/asset/desain karakter/prodi desain no bg 1.webp';
 
 // Import asset gambar posters & banners untuk preloading
-import iklanFibemini from './assets/asset/iklan banners/iklan fibemini.svg';
-import iklanPantene from './assets/asset/iklan banners/iklan pantene.svg';
-import iklanPringles1 from './assets/asset/iklan banners/iklan pringles1.svg';
-import iklanPringles2 from './assets/asset/iklan banners/iklan pringles2.svg';
+import iklanFibemini from './assets/asset/iklan banners/iklan-fibemini.webp';
+import iklanPantene from './assets/asset/iklan banners/iklan-pantene.webp';
+import iklanPringles1 from './assets/asset/iklan banners/iklan-pringles1.webp';
+import iklanPringles2 from './assets/asset/iklan banners/iklan-pringles2.webp';
 
 // Import asset gambar konten untuk preloading
 import kontenIg1 from './assets/asset/konten/konten ig1.svg';
